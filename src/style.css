@@ -46,6 +46,33 @@ label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
 
 .row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
+.style-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.style-row label { margin: 0; font-weight: 400; color: var(--muted); }
+.style-row label.checkbox { display: flex; align-items: center; gap: 0.4rem; }
+.style-row input[type='color'] {
+  flex: none;
+  width: 2.6rem;
+  height: 2.2rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.style-row input[type='color']:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.style-row input[type='checkbox'] {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
 input {
   flex: 1 1 14rem;
   min-width: 0;
@@ -85,7 +112,7 @@ button, .button {
 }
 #result h2:focus { outline: none; }
 
-/* QR stays black-on-white in dark mode — inverted codes don't scan on every phone. */
+/* White backdrop by default in dark mode — inverted codes don't scan on every phone. */
 #preview svg {
   display: block;
   width: min(100%, 18rem);
@@ -93,6 +120,12 @@ button, .button {
   margin: 0 auto;
   background: #fff;
   border-radius: 0.25rem;
+}
+
+/* Checkerboard behind a transparent-background code, so "transparent" doesn't look "blank". */
+#preview.transparent svg {
+  background:
+    repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 0 0 / 1.2rem 1.2rem;
 }
 
 .encoded { overflow-wrap: anywhere; color: var(--muted); text-align: center; }

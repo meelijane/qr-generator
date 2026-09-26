@@ -21,6 +21,19 @@
           <button type="submit">Make QR code</button>
         </div>
         <p id="url-error" class="error" role="alert"></p>
+
+        <div class="style-row">
+          <label for="fg-color">Code color</label>
+          <input id="fg-color" name="fg-color" type="color" value="#000000" />
+
+          <label for="bg-color">Background</label>
+          <input id="bg-color" name="bg-color" type="color" value="#ffffff" />
+
+          <label for="transparent-bg" class="checkbox">
+            <input id="transparent-bg" name="transparent-bg" type="checkbox" />
+            Transparent
+          </label>
+        </div>
       </form>
 
       <section id="result" hidden aria-labelledby="result-heading">
