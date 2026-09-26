@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR codes that don't expire</title>
+    <meta name="description" content="Turn a link into a QR code. Free, no sign-up, and it never expires." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 7'><path d='M0 0h3v3H0zM4 0h3v3H4zM0 4h3v3H0zM4 4h1v1H4zM6 6h1v1H6z'/></svg>" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>QR codes that don't expire</h1>
+      <p class="lede">Paste a link, get a QR code. Free, no account, no tracking.</p>
+
+      <form id="qr-form" novalidate>
+        <label for="url">Link</label>
+        <div class="row">
+          <input id="url" name="url" type="text" inputmode="url" autocomplete="url"
+                 placeholder="https://example.com" aria-describedby="url-error" required />
+          <button type="submit">Make QR code</button>
+        </div>
+        <p id="url-error" class="error" role="alert"></p>
+      </form>
+
+      <section id="result" hidden aria-labelledby="result-heading">
+        <h2 id="result-heading" tabindex="-1">Your QR code</h2>
+        <div id="preview"></div>
+        <p class="encoded">Opens <a id="encoded" rel="noopener noreferrer" target="_blank"></a></p>
+        <div class="downloads">
+          <a id="download-png" class="button">Download PNG</a>
+          <a id="download-svg" class="button secondary">Download SVG</a>
+        </div>
+        <p class="hint">Use SVG for print — it stays sharp at any size.</p>
+      </section>
+
+      <section class="why" aria-labelledby="why-heading">
+        <h2 id="why-heading">Why these never expire</h2>
+        <p>
+          Many QR sites give you a code that points at <em>their</em> server, which then
+          forwards people to your link. Stop paying and the code stops working.
+        </p>
+        <p>
+          These codes contain your link itself. There's nothing in between, so they'll
+          keep working for as long as your link does — even if this site disappears.
+          Codes are made in your browser; the link you paste is never sent anywhere.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
