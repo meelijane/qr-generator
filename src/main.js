@@ -1,6 +1,10 @@
+import { inject } from '@vercel/analytics';
 import QRCode from 'qrcode';
 import { fileNameFor, normaliseUrl } from './url.js';
 import './style.css';
+
+// Counts anonymous page visits only — no cookies, and it never sees what's typed into the form.
+inject();
 
 const form = document.querySelector('#qr-form');
 const input = document.querySelector('#url');
